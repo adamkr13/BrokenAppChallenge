@@ -29,8 +29,7 @@ namespace Pokemon_Console
                 switch (response)
                 {
                     case 1:
-                        SeeMyPokemonTeam();
-                        Console.Clear();
+                        SeeMyPokemonTeam();                        
                         break;
                     case 2:
                         AddPokemonToTeam();
@@ -100,62 +99,69 @@ namespace Pokemon_Console
                 Console.WriteLine("Pokemon Level: ");
                 string pokeLevel = Console.ReadLine();
 
+                if (!pokeLevel.All(char.IsDigit))
+                {
+
+                    Console.WriteLine("Pokemon Level must be whole numbers only!");                    Console.ReadKey();
+                }
+
+                else
+                {
+                    int level = int.Parse(pokeLevel);
 
 
-                int level = int.Parse(pokeLevel);
+                    Console.WriteLine("Pokemon Type: " +
+                        "\n1. Normal" +
+                        "\n2. Grass" +
+                        "\n3. Fire" +
+                        "\n4. Water" +
+                        "\n5. Electric" +
+                        "\n6. Ice" +
+                        "\n7. Bug" +
+                        "\n8. Ground" +
+                        "\n9. Rock" +
+                        "\n10. Fighting" +
+                        "\n11. Psychic" +
+                        "\n12. Ghost" +
+                        "\n13. Dark" +
+                        "\n14. Fairy" +
+                        "\n15. Dragon");
+                    TypeOfPokemon typeOne = (TypeOfPokemon)int.Parse(Console.ReadLine());
+
+                    Console.WriteLine("Pokemon Secondary Type: " +
+                        "\n1. Normal" +
+                        "\n2. Grass" +
+                        "\n3. Fire" +
+                        "\n4. Water" +
+                        "\n5. Electric" +
+                        "\n6. Ice" +
+                        "\n7. Bug" +
+                        "\n8. Ground" +
+                        "\n9. Rock" +
+                        "\n10. Fighting" +
+                        "\n11. Psychic" +
+                        "\n12. Ghost" +
+                        "\n13. Dark" +
+                        "\n14. Fairy" +
+                        "\n15. Dragon" +
+                        "\n16. None");
+                    TypeOfPokemon typeTwo = (TypeOfPokemon)int.Parse(Console.ReadLine());
+
+                    Console.WriteLine("Name of First Move: ");
+                    string moveOne = Console.ReadLine();
+                    Console.WriteLine("Name of Second Move: ");
+                    string moveTwo = Console.ReadLine();
+                    Console.WriteLine("Name of Third Move: ");
+                    string moveThree = Console.ReadLine();
+                    Console.WriteLine("Name of Fourth Move: ");
+                    string moveFour = Console.ReadLine();
 
 
-                Console.WriteLine("Pokemon Type: " +
-                    "\n1. Normal" +
-                    "\n2. Grass" +
-                    "\n3. Fire" +
-                    "\n4. Water" +
-                    "\n5. Electric" +
-                    "\n6. Ice" +
-                    "\n7. Bug" +
-                    "\n8. Ground" +
-                    "\n9. Rock" +
-                    "\n10. Fighting" +
-                    "\n11. Psychic" +
-                    "\n12. Ghost" +
-                    "\n13. Dark" +
-                    "\n14. Fairy" +
-                    "\n15. Dragon");
-                TypeOfPokemon typeOne = (TypeOfPokemon)int.Parse(Console.ReadLine());
-
-                Console.WriteLine("Pokemon Secondary Type: " +
-                    "\n1. Normal" +
-                    "\n2. Grass" +
-                    "\n3. Fire" +
-                    "\n4. Water" +
-                    "\n5. Electric" +
-                    "\n6. Ice" +
-                    "\n7. Bug" +
-                    "\n8. Ground" +
-                    "\n9. Rock" +
-                    "\n10. Fighting" +
-                    "\n11. Psychic" +
-                    "\n12. Ghost" +
-                    "\n13. Dark" +
-                    "\n14. Fairy" +
-                    "\n15. Dragon" +
-                    "\n16. None");
-                TypeOfPokemon typeTwo = (TypeOfPokemon)int.Parse(Console.ReadLine());
-
-                Console.WriteLine("Name of First Move: ");
-                string moveOne = Console.ReadLine();
-                Console.WriteLine("Name of Second Move: ");
-                string moveTwo = Console.ReadLine();
-                Console.WriteLine("Name of Third Move: ");
-                string moveThree = Console.ReadLine();
-                Console.WriteLine("Name of Fourth Move: ");
-                string moveFour = Console.ReadLine();
-
-
-                Pokemon newPokemon = new Pokemon(species, name, level, typeOne, typeTwo, moveOne, moveTwo, moveThree, moveFour);
-                _repo.AddPokemonToTeam(newPokemon);
-                Console.WriteLine("Pokemon added!");
-                Console.ReadKey();
+                    Pokemon newPokemon = new Pokemon(species, name, level, typeOne, typeTwo, moveOne, moveTwo, moveThree, moveFour);
+                    _repo.AddPokemonToTeam(newPokemon);
+                    Console.WriteLine("Pokemon added!");
+                    Console.ReadKey();
+                }
             }
         }
 

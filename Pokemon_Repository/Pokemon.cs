@@ -48,7 +48,7 @@ namespace Pokemon_Repository
             SecondaryType = secondaryType;
             MoveOne = moveOne;
             MoveTwo = moveTwo;
-            MoveThree = moveTwo;
+            MoveThree = moveThree;
             MoveFour = moveFour;
         }
     }
